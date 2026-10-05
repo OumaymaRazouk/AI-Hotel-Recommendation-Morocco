@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Travel-friendly palette: Sky, Sand, Nature */
+    --background: 200 40% 98%;
+    --foreground: 210 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 15%;
+
+    /* Sky Blue */
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Sandy beige */
+    --secondary: 35 77% 90%;
+    --secondary-foreground: 35 50% 25%;
+
+    --muted: 200 20% 94%;
+    --muted-foreground: 200 15% 45%;
+
+    /* Nature green */
+    --accent: 152 60% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Coral/sunset orange */
+    --destructive: 15 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 94%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --sky: 199 89% 48%;
+    --sky-light: 199 85% 92%;
+    --sand: 35 77% 85%;
+    --sand-dark: 35 50% 70%;
+    --nature: 152 60% 45%;
+    --nature-light: 152 50% 90%;
+    --ocean: 210 80% 40%;
+    --sunset: 25 95% 60%;
+    --cloud: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-sky: linear-gradient(135deg, hsl(199 89% 55%) 0%, hsl(199 85% 70%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(35 90% 60%) 0%, hsl(15 90% 65%) 100%);
+    --gradient-nature: linear-gradient(135deg, hsl(152 60% 45%) 0%, hsl(170 60% 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(199 85% 95%) 0%, hsl(200 40% 98%) 100%);
+    --gradient-ocean: linear-gradient(135deg, hsl(210 80% 40%) 0%, hsl(199 89% 48%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsla(199 89% 48% / 0.15);
+    --shadow-card: 0 8px 30px hsla(210 40% 15% / 0.08);
+    --shadow-glow: 0 8px 25px hsla(199 89% 48% / 0.3);
+
+    /* Chat specific */
+    --chat-user: 199 89% 48%;
+    --chat-user-foreground: 0 0% 100%;
+    --chat-assistant: 0 0% 100%;
+    --chat-assistant-foreground: 210 40% 15%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 200 20% 95%;
+    --card: 210 35% 12%;
+    --card-foreground: 200 20% 95%;
+    --popover: 210 35% 12%;
+    --popover-foreground: 200 20% 95%;
+    --primary: 199 89% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 30% 20%;
+    --secondary-foreground: 35 50% 85%;
+    --muted: 210 30% 18%;
+    --muted-foreground: 200 15% 60%;
+    --accent: 152 50% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 15 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 30% 20%;
+    --input: 210 30% 18%;
+    --ring: 199 89% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .heading-font {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .btn-primary {
+    background: var(--gradient-sky);
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px hsla(199 89% 48% / 0.4);
+  }
+
+  .btn-secondary {
+    background: var(--gradient-sunset);
+    box-shadow: 0 4px 15px hsla(25 95% 60% / 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px hsla(25 95% 60% / 0.4);
+  }
+
+  .card-travel {
+    background: hsl(var(--card));
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+  }
+
+  .card-travel:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px hsla(210 40% 15% / 0.12);
+  }
+
+  .gradient-text {
+    background: var(--gradient-ocean);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .chat-bubble-user {
+    background: var(--gradient-sky);
+  }
+
+  .chat-bubble-assistant {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .place-card {
+    background: hsl(var(--card));
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .place-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 40px hsla(210 40% 15% / 0.15);
+  }
+
+  .hero-bg {
+    background: var(--gradient-hero);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s ease-out forwards;
+  }
+
+  .animate-bounce-soft {
+    animation: bounceSoft 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes bounceSoft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(2deg); }
+  }
+
+  .typing-indicator span {
+    animation: typingBounce 1.4s ease-in-out infinite;
+  }
+
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-5px); }
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+}

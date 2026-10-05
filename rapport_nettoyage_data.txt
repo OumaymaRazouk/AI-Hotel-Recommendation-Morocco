@@ -1,0 +1,147 @@
+==== RAPPORT DE NETTOYAGE DE DONNÉES ====
+Généré le : 2025-12-11 10:46:03
+
+1) INFO GÉNÉRALE AVANT NETTOYAGE
+----------------------------------------
+Shape initial (lignes, colonnes) : (30000, 17)
+Colonnes : Ville, Type, Saison_ideale, Activites, Description, Budget_estime, Score_utilisateur, Duree_suggeree, Accessibilite, Securite_confort, Hotel, Latitude, Longitude, GoogleMap_URL, Services, Rating, Prix_nuit
+
+Top 20 des colonnes avec le plus de valeurs manquantes (AVANT) :
+Ville                0
+Type                 0
+Saison_ideale        0
+Activites            0
+Description          0
+Budget_estime        0
+Score_utilisateur    0
+Duree_suggeree       0
+Accessibilite        0
+Securite_confort     0
+Hotel                0
+Latitude             0
+Longitude            0
+GoogleMap_URL        0
+Services             0
+Rating               0
+Prix_nuit            0
+dtype: int64
+
+Statistiques descriptives des variables numériques (AVANT) :
+             count        mean         std  ...         50%          75%          max
+Latitude   30000.0   32.561571    2.666089  ...   33.450767    34.061542    35.789007
+Longitude  30000.0   -7.050896    2.924779  ...   -6.897326    -5.220291    -1.905488
+Rating     30000.0    3.933613    0.650368  ...    3.900000     4.500000     5.000000
+Prix_nuit  30000.0  889.652800  544.475394  ...  733.000000  1342.000000  2000.000000
+
+[4 rows x 8 columns]
+
+
+2) INFO GÉNÉRALE APRÈS NETTOYAGE
+----------------------------------------
+Shape après nettoyage (lignes, colonnes) : (30000, 18)
+Colonnes : Ville, Type, Saison_ideale, Activites, Description, Budget_estime, Score_utilisateur, Duree_suggeree, Accessibilite, Securite_confort, Hotel, Latitude, Longitude, GoogleMap_URL, Services, Rating, Prix_nuit, full_text
+
+Top 20 des colonnes avec le plus de valeurs manquantes (APRÈS) :
+Ville                0
+Type                 0
+Saison_ideale        0
+Activites            0
+Description          0
+Budget_estime        0
+Score_utilisateur    0
+Duree_suggeree       0
+Accessibilite        0
+Securite_confort     0
+Hotel                0
+Latitude             0
+Longitude            0
+GoogleMap_URL        0
+Services             0
+Rating               0
+Prix_nuit            0
+full_text            0
+dtype: int64
+
+Statistiques descriptives des variables numériques (APRÈS) :
+             count        mean         std  ...         50%          75%          max
+Latitude   30000.0   32.561571    2.666089  ...   33.450767    34.061542    35.789007
+Longitude  30000.0   -7.050896    2.924779  ...   -6.897326    -5.220291    -1.905488
+Rating     30000.0    3.933613    0.650368  ...    3.900000     4.500000     5.000000
+Prix_nuit  30000.0  889.652800  544.475394  ...  733.000000  1342.000000  2000.000000
+
+[4 rows x 8 columns]
+
+
+3) IMPACT DES OPÉRATIONS DE NETTOYAGE
+----------------------------------------
+Nombre de lignes initial : 30000
+Nombre de lignes après suppression doublons + NA Description : 30000
+Nombre de lignes supprimées : 0
+
+Distribution de 'Rating' (APRÈS) :
+count    30000.000000
+mean         3.933613
+std          0.650368
+min          0.000000
+25%          3.400000
+50%          3.900000
+75%          4.500000
+max          5.000000
+Name: Rating, dtype: float64
+
+Distribution de 'Prix_nuit' (APRÈS) :
+count    30000.000000
+mean       889.652800
+std        544.475394
+min        150.000000
+25%        421.000000
+50%        733.000000
+75%       1342.000000
+max       2000.000000
+Name: Prix_nuit, dtype: float64
+
+
+4) INFO TF-IDF
+----------------------------------------
+Nombre de documents utilisés pour 'full_text' : 30000
+Shape de la matrice TF-IDF : (30000, 1053)
+Nombre de features TF-IDF (vocabulaire) : 1053
+
+
+5) SPLIT TRAIN / TEST
+----------------------------------------
+Colonne cible utilisée : Rating
+Taille X_train : (24000, 1053)
+Taille X_test  : (6000, 1053)
+Taille y_train : (24000,)
+Taille y_test  : (6000,)
+
+Distribution de 'Rating' — TRAIN :
+count    24000.000000
+mean         3.933579
+std          0.650073
+min          0.000000
+25%          3.400000
+50%          3.900000
+75%          4.500000
+max          5.000000
+dtype: float64
+
+Distribution de 'Rating' — TEST :
+count    6000.000000
+mean        3.933750
+std         0.651603
+min         1.000000
+25%         3.400000
+50%         3.900000
+75%         4.500000
+max         5.000000
+dtype: float64
+
+Fichiers exportés (train/test) :
+ - X_train_tfidf.npz
+ - X_test_tfidf.npz
+ - y_train.csv
+ - y_test.csv
+ - hotels_maroc_30000_equilibres_clean_train.csv
+ - hotels_maroc_30000_equilibres_clean_test.csv

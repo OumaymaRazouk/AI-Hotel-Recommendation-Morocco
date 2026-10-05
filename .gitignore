@@ -1,0 +1,20 @@
+# Machine Learning generated artifacts
+*.npy
+*.npz
+*.pkl
+
+# Large generated datasets
+hotels_maroc_30000_equilibres.csv
+hotels_maroc_30000_equilibres_clean.csv
+hotels_maroc_30000_equilibres_clean_train.csv
+hotels_maroc_30000_equilibres_clean_test.csv
+hotels_maroc_30000_equilibres_utf8.csv
+hotels_maroc_30000_equilibres_utf8_bom.csv
+
+# Generated dataset splits
+dataset/hotels_maroc_30000_equilibres_clean_train.csv
+dataset/hotels_maroc_30000_equilibres_clean_test.csv
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
